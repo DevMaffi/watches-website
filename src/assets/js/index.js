@@ -1,3 +1,3 @@
 // Modules
 
-import '@sass/styles.sass'
+import '@sass/styles'
