@@ -1,14 +1,45 @@
+// Modules
+
+@use '../plugins/plugins-dir' as plugins
+
 /* BASE STYLES
 
 *, 
 *:before, 
 *:after
   box-sizing: border-box
-  padding: 0
-  margin: 0
+  +plugins.padding(0)
+  +plugins.margin(0)
+
+html
+  scroll-behavior: smooth
+
+body,
+#{plugins.$all-buttons},
+input
+  font:
+    family: var(--body-font)
+    size: var(--normal-font-size)
 
 body
-  font-family: var(--body-font)
+  background-color: var(--body-color)
+  color: var(--text-color)
 
-h1
-  font-size: var(--h1-font-size)
+#{plugins.$all-buttons}
+  border: none
+  outline: none
+  cursor: pointer
+
+h1, h2, h3, h4 
+  font-weight: var(--font-medium)
+  color: var(--title-color)
+
+ul
+  list-style: none
+
+a
+  text-decoration: none
+
+img
+  max-width: 100%
+  height: auto
