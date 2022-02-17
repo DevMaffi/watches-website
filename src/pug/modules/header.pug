@@ -2,11 +2,11 @@
 header.header#header
 
   // NAV CONTAINER
-  nav.nav.container
+  nav.nav#nav.container
     
     // NAV LOGO
     a.nav__logo(href="#") Rolex
-      i.bx.bxs-watch
+      i.bx.bxs-watch.nav__logo-icon
 
     // NAV MENU
     .nav__menu#nav-menu
@@ -15,12 +15,12 @@ header.header#header
           li.nav__item
             a.nav__link(href=`#${link.toLowerCase()}`)= link
 
-    // NAV CLOSE
-    .nav__close#nav-close
-      i.bx.bx-x
+      // NAV CLOSE
+      .nav__close#nav-close
+        i.bx.bx-x
 
     // NAV BUTTONS
-    .nav.btns
+    .nav__btns
       .nav__shop#cart-shop
         .bx.bx-shopping-bag
       .nav__toggle#nav-toggle
