@@ -1,0 +1,64 @@
+// Modules
+
+@use '../plugins/plugins-dir' as plugins
+
+/* FEATURED
+
+.featured__container
+  row-gap: 2.5rem
+
+.featured__card
+  +plugins.padding(2rem null null)
+  background-color: var(--container-color)
+  border: 1px solid var(--border-color)
+  text-align: center
+  overflow-y: hidden
+  cursor: pointer
+  position: relative
+  transition: .3s
+
+  &:hover
+    +plugins.padding(2rem null 3rem)
+    box-shadow: 0 12px 32px hsla(0, 0%, 20%, .1)
+
+    .featured__price
+      +plugins.margin(null null var(--mb-1-5))
+
+    .featured__button
+      transform: translateY(0)
+      opacity: 1
+
+.featured__tag
+  +plugins.padding(.5rem 1rem)
+  background-color: var(--first-color)
+  font:
+    size: var(--small-font-size)
+    weight: var(--font-medium)
+  text-transform: uppercase
+  color: hsl(0, 0%, 100%)
+  +plugins.position(absolute, 3rem null null -1rem)
+  transform: rotate(-90deg)
+
+.featured__img
+  height: 214px
+  +plugins.margin(null null var(--mb-1))
+
+.featured__title,
+.featured__price
+  font:
+    size: var(--h3-font-size)
+    weight: var(--font-bold)
+
+.featured__title
+  +plugins.margin(null null var(--mb-0-75))
+  text-transform: uppercase
+
+.featured__price
+  display: block
+  color: var(--first-color)
+  transition: .3s
+
+.featured__button
+  font-size: var(--small-font-size)
+  transform: translateY(1rem)
+  opacity: 0
