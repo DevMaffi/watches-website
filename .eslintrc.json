@@ -52,6 +52,7 @@
     "keyword-spacing": 0,
     "linebreak-style": 0,
     "lines-between-class-members": 0,
+    "max-len": 0,
     "no-console": 0,
     "no-duplicate-case": 1,
     "no-empty": 1,
