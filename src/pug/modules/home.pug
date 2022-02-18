@@ -1,0 +1,30 @@
+// HOME
+section.home#home
+
+  // HOME CONTAINER
+  .home__container.container.grid 
+    .home__img-bg 
+      img(src="@img/home.png", alt="🏡")
+
+    // HOME SOCIAL
+    .home__social
+      a.home__social-link(href="https://www.facebook.com/" target="_blank") Facebook
+      a.home__social-link(href="https://twitter.com/" target="_blank") Twitter 
+      a.home__social-link(href="https://www.instagram.com/" target="_blank") Instagram
+
+    // HOME DATA
+    .home__data
+      h1.home__title
+        |NEW WATCH
+        br
+        |COLLECTIONS B720
+
+      // HOME DESCRIPTION
+      p.home__description.
+        Latest arrival of the new imported watches of the B720 series, with a modern and resistant design.
+      span.home__price $1245
+
+      // HOME BTNS
+      .home__btns
+        a.button.button--gray.button--small(href="#") Discover
+        button.button.home__button ADD TO CART
