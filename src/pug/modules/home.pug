@@ -8,9 +8,8 @@ section.home#home
 
     // HOME SOCIAL
     .home__social
-      a.home__social-link(href="https://www.facebook.com/" target="_blank") Facebook
-      a.home__social-link(href="https://twitter.com/" target="_blank") Twitter 
-      a.home__social-link(href="https://www.instagram.com/" target="_blank") Instagram
+      each link, key in socialLinks
+        a.home__social-link(href=`${link}` target="_blank")= key.charAt(0).toUpperCase() + key.slice(1)
 
     // HOME DATA
     .home__data
