@@ -15,3 +15,10 @@
     transform: uppercase
   letter-spacing: 2px
   position: relative
+
+  &:before
+    content: ''
+    +plugins.size(67px, 1px)
+    +plugins.margin(0 auto)
+    background-color: var(--first-color)
+    +plugins.position(absolute, -1rem 0 null)
