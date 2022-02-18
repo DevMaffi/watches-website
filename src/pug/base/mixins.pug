@@ -8,3 +8,16 @@ mixin head({ title=projectName, favicon="@files/favicon/favicon.png" } = {})
     title= title
 
     block
+
+mixin featuredCard({ i, card: { title, price }} = {})
+  // FEATURED CARD
+  article.featured__card
+    span.featured__tag Sale
+    img.featured__img(src=`@img/featured${i + 1}.png`, alt="featured")
+
+    // FEATURED DATA
+    .featured__data
+      h3.featured__title= title
+      span.featured__price= `$${price}`
+    
+    button.button.featured__button ADD TO CART

@@ -1,0 +1,8 @@
+//FEATURED
+section.featured.section.container#featured
+  h2.section__title Featured
+
+  // FEATURED CONTAINER
+  .featured__container.grid
+    each card, i in featuredCards
+      +featuredCard({ i, card })
