@@ -9,15 +9,31 @@ mixin head({ title=projectName, favicon="@files/favicon/favicon.png" } = {})
 
     block
 
-mixin featuredCard({ i, card: { title, price }} = {})
-  // FEATURED CARD
-  article.featured__card
-    span.featured__tag Sale
-    img.featured__img(src=`@img/featured${i + 1}.png`, alt="featured")
+mixin card({ i, classPrefix, imgPrefix, isSale=false } = {})
+  // CARD
+  article(class=`${classPrefix}__card`)
+    if isSale
+      span(class=`${classPrefix}__tag`) Sale
 
-    // FEATURED DATA
-    .featured__data
-      h3.featured__title= title
-      span.featured__price= `$${price}`
-    
-    button.button.featured__button ADD TO CART
+    img(src=`@img/${imgPrefix}${i + 1}.png`, alt=`${imgPrefix}` class=`${classPrefix}__img`)
+
+    // CARD DATA
+    block
+
+mixin featuredCard({ i, card: { title, price }} = {})
+  +card({ i, classPrefix: "featured", imgPrefix: "featured", isSale: true })
+    block cardData
+      .featured__data
+        h3.featured__title= title
+        span.featured__price= `$${price}`
+
+      button.button.featured__button ADD TO CART
+
+mixin productsCard({ i, card: {title, price }} = {})
+  +card({ i, classPrefix: "products", imgPrefix: "product" })
+    block cardData
+      h3.products__title= title
+      span.products__price= `$${price}`
+
+      button.products__button
+        i.bx.bx-shopping-bag

@@ -1,0 +1,8 @@
+// PRODUCTS
+section.products.section.container#products
+  h2.section__title Products
+
+  // PRODUCTS CONTAINER
+  .products__container.grid
+    each card, i in productsCards
+      +productsCard({ i, card })
