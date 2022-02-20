@@ -1,3 +1,13 @@
+// Modules
+
+@use '../plugins/plugins-dir' as plugins
+
+// Mixins
+
 =breakpoint($br, $media-feature: 'min-width')
   @media screen and (#{$media-feature}: $br)
     @content
+
+=card-title($mb)
+  +plugins.margin(null null $mb)
+  text-transform: uppercase

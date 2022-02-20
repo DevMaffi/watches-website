@@ -1,6 +1,13 @@
 // Modules
 
+// plugins
 @use '../plugins/plugins-dir' as plugins
+
+// mixins
+@use '../base/mixins'
+
+// placeholders
+@use '../base/placeholders'
 
 /* FEATURED
 
@@ -9,13 +16,8 @@
 
 .featured__card
   +plugins.padding(2rem null null)
-  background-color: var(--container-color)
-  border: 1px solid var(--border-color)
-  text-align: center
   overflow-y: hidden
-  cursor: pointer
-  position: relative
-  transition: .3s
+  @extend %card
 
   &:hover
     +plugins.padding(2rem null 3rem)
@@ -50,8 +52,7 @@
     weight: var(--font-bold)
 
 .featured__title
-  +plugins.margin(null null var(--mb-0-75))
-  text-transform: uppercase
+  +mixins.card-title($mb: var(--mb-0-75))
 
 .featured__price
   display: block

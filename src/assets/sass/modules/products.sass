@@ -1,0 +1,50 @@
+// Modules
+
+// plugins
+@use '../plugins/plugins-dir' as plugins
+
+// mixins
+@use '../base/mixins'
+
+// placeholders
+@use '../base/placeholders'
+
+/* PRODUCTS
+
+.products__container
+  grid-template-columns: repeat(2, 1fr) 
+  gap: 2rem
+
+.products__card
+  +plugins.padding(1.25rem null)
+  @extend %card
+
+  &:hover
+    box-shadow: 0 8px 32px hsla(0, 0%, 10%, .1)
+
+.products__img
+  height: 125px
+  +plugins.margin(null null var(--mb-1))
+
+.products__title,
+.products__price
+  font:
+    size: var(--small-font-size)
+    weight: var(--font-medium)
+
+.products__title
+  +mixins.card-title($mb: var(--mb-0-5))
+
+.products__price
+  color: var(--first-color)
+
+.products__button
+  +plugins.padding(.4rem)
+  background-color: var(--button-color)
+  font-size: 1rem
+  color: hsl(0, 0%, 100%)
+  +plugins.position(absolute, null 0 0 null)
+  transition: .3s
+
+  &:hover
+    background-color: var(--button-color-alt)
