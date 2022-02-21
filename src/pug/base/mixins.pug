@@ -9,9 +9,9 @@ mixin head({ title=projectName, favicon="@files/favicon/favicon.png" } = {})
 
     block
 
-mixin card({ i, classPrefix, imgPrefix, tag="" } = {})
+mixin card({ i, classPrefix, imgPrefix, isSlide, tag="" } = {})
   // CARD
-  article(class=`${classPrefix}__card`)
+  article(class=`${classPrefix}__card ${isSlide ? 'swiper-slide' : ''}`)
     if tag
       span(class=`${classPrefix}__tag`)= tag
 
@@ -59,7 +59,7 @@ mixin testimonialCard({ i, card: { name }} = {})
         span.testimonial__perfil-detail Director of a company
 
 mixin newCard({ i, card: { title, price }} = {})
-  +card({ i, classPrefix: "new", imgPrefix: "new", tag: "New" })
+  +card({ i, classPrefix: "new", imgPrefix: "new", isSlide: true, tag: "New" })
     block cardData
       .new__data
         h3.new__title= title
