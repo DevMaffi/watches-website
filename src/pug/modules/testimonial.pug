@@ -5,9 +5,18 @@ section.testimonial.section.container#testimonial
   .testimonial__container.grid
 
     // TESTIMONIAL SWIPER
-    div
-      each card, i in testimonialCards
-        +testimonialCard({ i, card })
+    .swiper.testimonial-swiper
+
+      // SWIPER WRAPPER
+      .swiper-wrapper
+        each card, i in testimonialCards
+          +testimonialCard({ i, card })
+
+      // SWIPER BTNS
+      .swiper-button-prev
+        i.bx.bx-left-arrow-alt
+      .swiper-button-next
+        i.bx.bx-right-arrow-alt
 
     // TESTIMONIAL IMAGES
     .testimonial__images

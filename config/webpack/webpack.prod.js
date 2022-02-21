@@ -2,7 +2,6 @@
 
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 
 // Config
@@ -30,10 +29,7 @@ const config = {
     ],
   },
   output: { filename: '[contenthash].js' },
-  plugins: [
-    new MiniCssExtractPlugin({ filename: '[contenthash].css' }),
-    new BundleAnalyzerPlugin(),
-  ],
+  plugins: [new BundleAnalyzerPlugin()],
 }
 
 // Exports

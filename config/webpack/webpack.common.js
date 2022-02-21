@@ -74,7 +74,11 @@ const config = {
     extensions: ['.js', '.json', '.sass', '.scss'],
   },
   output: { path: path.distDir },
-  plugins: [new CleanWebpackPlugin(), ...applyHtmlPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({ filename: '[contenthash].css' }),
+    ...applyHtmlPlugin(),
+  ],
   module: {
     rules: [
       {
