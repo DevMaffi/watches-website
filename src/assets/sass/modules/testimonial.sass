@@ -1,0 +1,54 @@
+// Modules
+
+// plugins
+@use '../plugins/plugins-dir' as plugins
+
+// mixins
+@use '../base/mixins'
+
+/* TESTIMONIAL
+
+.testimonial__container
+  row-gap: 4rem
+
+.testimonial__quote
+  display: inline-flex
+  +plugins.margin(null null var(--mb-2))
+  +plugins.padding(.5rem .75rem)
+  background-color: var(--container-color)
+  font-size: 1.5rem
+  color: var(--first-color)
+  box-shadow: 0 4px 12px hsla(0, 0%, 20%, .1)
+
+.testimonial__description
+  +plugins.margin(null null var(--mb-1))
+
+.testimonial__date
+  +plugins.margin(null null var(--mb-2))
+  font-size: var(--normal-font-size)
+
+.testimonial__perfil
+  display: flex
+  align-items: center
+  column-gap: 1rem
+  +plugins.margin(null null 7rem)
+
+.testimonial__perfil-img
+  +plugins.size(60px)
+  border-radius: 50%
+
+.testimonial__perfil-data
+  display: flex
+  flex-direction: column
+  row-gap: .5rem
+
+.testimonial__perfil-name
+  font:
+    size: var(--h3-font-size)
+    weight: var(--font-medium)
+  color: var(--title-color)
+
+.testimonial__perfil-detail
+  font-size: var(--small-font-size)
+
++mixins.images-block($parent: 'testimonial', $box-edge-values: 3rem 2rem null null, $sq-left: true)

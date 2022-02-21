@@ -1,6 +1,10 @@
 // Modules
 
+// plugins
 @use '../plugins/plugins-dir' as plugins
+
+// mixins
+@use '../base/mixins'
 
 /* STORY
 
@@ -14,16 +18,4 @@
 .story__description
   +plugins.margin(null null var(--mb-2-5))
 
-.story__images
-  position: relative
-
-.story__img,
-.story__square
-  width: 250px
-
-.story__img
-  +plugins.position(absolute, -3rem null null 3rem)
-
-.story__square
-  height: 250px
-  background-color: var(--first-color)
++mixins.images-block($parent: 'story', $box-edge-values: -3rem null null 3rem)

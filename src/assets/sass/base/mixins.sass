@@ -11,3 +11,21 @@
 =card-title($mb)
   +plugins.margin(null null $mb)
   text-transform: uppercase
+
+=images-block($parent, $box-edge-values, $sq-left: false)
+  .#{$parent}__images
+    position: relative
+
+  .#{$parent}__img,
+  .#{$parent}__square
+    width: 250px
+
+  .#{$parent}__img
+    +plugins.position(absolute, $box-edge-values)
+
+  .#{$parent}__square
+    height: 250px
+    background-color: var(--first-color)
+
+    @if $sq-left
+      margin-left: auto
