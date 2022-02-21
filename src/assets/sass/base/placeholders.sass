@@ -1,3 +1,11 @@
+// Modules
+
+// plugins
+@use '../plugins/plugins-dir' as plugins
+
+// mixins
+@use 'mixins'
+
 // Placeholders
 
 %card
@@ -7,3 +15,34 @@
   cursor: pointer
   position: relative
   transition: .3s
+
+%card-tag
+  +plugins.padding(.5rem 1rem)
+  background-color: var(--first-color)
+  font:
+    size: var(--small-font-size)
+    weight: var(--font-medium)
+  text-transform: uppercase
+  color: hsl(0, 0%, 100%)
+
+%card-img
+  height: 215px
+  +plugins.margin(null null var(--mb-1))
+
+%card-title-price
+  font:
+    size: var(--h3-font-size)
+    weight: var(--font-bold)
+
+%card-title
+  +mixins.card-title($mb: var(--mb-0-75))
+
+%card-price
+  display: block
+  color: var(--first-color)
+  transition: .3s
+
+%card-button
+  font-size: var(--small-font-size)
+  transform: translateY(1rem)
+  opacity: 0

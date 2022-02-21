@@ -6,44 +6,49 @@
 // placeholders
 @use '../base/placeholders'
 
-/* FEATURED
+/* NEW
 
-.featured__container
-  row-gap: 2.5rem
-
-.featured__card
+.new__card
   +plugins.padding(2rem null null)
   overflow-y: hidden
   @extend %card
 
   &:hover
     +plugins.padding(2rem null 3rem)
+    background-color: var(--first-color)
     box-shadow: 0 12px 32px hsla(0, 0%, 20%, .1)
 
-    .featured__price
-      +plugins.margin(null null var(--mb-1-5))
+    .new__tag
+      background-color: var(--button-color)
 
-    .featured__button
+    .new__button
       transform: translateY(0)
       opacity: 1
 
-.featured__tag
-  +plugins.position(absolute, 3rem null null -1rem)
-  transform: rotate(-90deg)
+    .new__title,
+    .new__price
+      color: hsl(0, 0%, 15%)
+
+    .new__price
+      +plugins.margin(null null var(--mb-1-5))
+
+.new__tag
+  +plugins.position(absolute, 1rem 1rem null null)
+  transition: .3s
   @extend %card-tag
 
-.featured__img
+.new__img
   @extend %card-img
 
-.featured__title,
-.featured__price
+.new__title,
+.new__price
   @extend %card-title-price
 
-.featured__title
+.new__title
   @extend %card-title
 
-.featured__price
+.new__price
   @extend %card-price
 
-.featured__button
+.new__button
   @extend %card-button
