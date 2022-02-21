@@ -9,11 +9,11 @@ mixin head({ title=projectName, favicon="@files/favicon/favicon.png" } = {})
 
     block
 
-mixin card({ i, classPrefix, imgPrefix, isSale=false } = {})
+mixin card({ i, classPrefix, imgPrefix, tag="" } = {})
   // CARD
   article(class=`${classPrefix}__card`)
-    if isSale
-      span(class=`${classPrefix}__tag`) Sale
+    if tag
+      span(class=`${classPrefix}__tag`)= tag
 
     img(src=`@img/${imgPrefix}${i + 1}.png`, alt=`${imgPrefix}` class=`${classPrefix}__img`)
 
@@ -21,7 +21,7 @@ mixin card({ i, classPrefix, imgPrefix, isSale=false } = {})
     block
 
 mixin featuredCard({ i, card: { title, price }} = {})
-  +card({ i, classPrefix: "featured", imgPrefix: "featured", isSale: true })
+  +card({ i, classPrefix: "featured", imgPrefix: "featured", tag: "Sale" })
     block cardData
       .featured__data
         h3.featured__title= title
@@ -29,7 +29,7 @@ mixin featuredCard({ i, card: { title, price }} = {})
 
       button.button.featured__button ADD TO CART
 
-mixin productsCard({ i, card: {title, price }} = {})
+mixin productsCard({ i, card: { title, price }} = {})
   +card({ i, classPrefix: "products", imgPrefix: "product" })
     block cardData
       h3.products__title= title
@@ -57,3 +57,12 @@ mixin testimonialCard({ i, card: { name }} = {})
       .testimonial__perfil-data
         span.testimonial__perfil-name= name
         span.testimonial__perfil-detail Director of a company
+
+mixin newCard({ i, card: { title, price }} = {})
+  +card({ i, classPrefix: "new", imgPrefix: "new", tag: "New" })
+    block cardData
+      .new__data
+        h3.new__title= title
+        span.new__price= `$${price}`
+
+      button.button.new__button ADD TO CART     

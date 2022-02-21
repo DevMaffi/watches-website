@@ -1,0 +1,10 @@
+// NEW
+section.new.section.container#new
+  h2.section__title New Arrivals
+
+  // NEW CONTAINER
+  .new__container
+    div
+      div
+        each card, i in newCards
+          +newCard({ i, card })
