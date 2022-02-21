@@ -1,0 +1,15 @@
+// TESTIMONIAL
+section.testimonial.section.container#testimonial
+
+  // TESTIMONIAL CONTAINER
+  .testimonial__container.grid
+
+    // TESTIMONIAL SWIPER
+    div
+      each card, i in testimonialCards
+        +testimonialCard({ i, card })
+
+    // TESTIMONIAL IMAGES
+    .testimonial__images
+      .testimonial__square
+        img.testimonial__img(src="@img/testimonial.png", alt="testimonial")

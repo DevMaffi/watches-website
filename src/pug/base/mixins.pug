@@ -37,3 +37,24 @@ mixin productsCard({ i, card: {title, price }} = {})
 
       button.products__button
         i.bx.bx-shopping-bag
+
+mixin testimonialCard({ i, card: { name }} = {})
+  // TESTIMONIAL CARD
+  .testimonial__card
+
+    // TESTIMONIAL QUOTE
+    .testimonial__quote
+      i.bx.bxs-quote-alt-left
+
+      p.testimonial__description.
+        They are the best watches that one acquires, also they are always with the latest news and trends, with a very comfortable price and especially with the attention you receive, they are always attentive to your questions.
+
+      h3.testimonial__date Match 27. 2021
+
+      // TESTIMONIAL PERFIL
+      .testimonial__perfil
+        img.testimonial__perfil-img(src=`@img/testimonial${i + 1}.jpg`, alt="testimonial")
+
+        .testimonial__perfil-data
+          span.testimonial__perfil-name= name
+          span.testimonial__perfil-detail Director of a company
