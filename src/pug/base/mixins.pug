@@ -9,6 +9,9 @@ mixin head({ title=projectName, favicon="@files/favicon/favicon.png" } = {})
 
     block
 
+mixin navLink({ link, isActive=false } = {})
+  a(class=`nav__link ${isActive ? "active-link" : ""}` href=`#${link.toLowerCase()}`)= link
+
 mixin card({ i, classPrefix, imgPrefix, isSlide, tag="" } = {})
   // CARD
   article(class=`${classPrefix}__card ${isSlide ? 'swiper-slide' : ''}`)

@@ -12,9 +12,12 @@ header.header#header
     // NAV MENU
     .nav__menu#nav-menu
       ul.nav__list
-        each link in navLinks
+        each link, i in navLinks
           li.nav__item
-            a.nav__link(href=`#${link.toLowerCase()}`)= link
+            if i === 0
+              +navLink({ link, isActive: true })
+            else
+              +navLink({ link })
 
       // NAV CLOSE
       .nav__close#nav-close
