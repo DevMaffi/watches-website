@@ -24,7 +24,7 @@ footer.footer.section#footer
       // FOOTER SOCIAL
       ul.footer__social
         each link, key in socialLinks
-          a.social__link(href=`${link}` target="_blank")
+          a.footer__social-link(href=`${link}` target="_blank")
             i(class=`bx bxl-${key}`)
 
   span.footer__copy © #{new Date().getFullYear()} Rolex. All rights reserved
