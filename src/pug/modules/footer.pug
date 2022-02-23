@@ -1,0 +1,30 @@
+// FOOTER
+footer.footer.section#footer
+
+  // FOOTER CONTAINER
+  .footer__container.container.grid
+
+    // FOOTER CONTENT
+    .footer__content
+      h3.footer__title Our information
+
+      // FOOTER LIST
+      ul.footer__list
+        li 1234 - Peru
+        li La Libertad 43210
+        li 123-456-789
+
+    each section in footerSections
+      +footerContent(section)
+
+    // FOOTER CONTENT
+    .footer__content
+      h3.footer__title Our information
+
+      // FOOTER SOCIAL
+      ul.footer__social
+        each link, key in socialLinks
+          a.social__link(href=`${link}` target="_blank")
+            i(class=`bx bxl-${key}`)
+
+  span.footer__copy © #{new Date().getFullYear()} Rolex. All rights reserved

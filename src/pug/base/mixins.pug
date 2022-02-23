@@ -66,3 +66,14 @@ mixin newCard({ i, card: { title, price }} = {})
         span.new__price= `$${price}`
 
       button.button.new__button ADD TO CART     
+
+mixin footerContent({ title, links } = {})
+  // FOOTER CONTENT
+  .footer__content
+    h3.footer__title= title
+
+    // FOOTER LINKS
+    ul.footer__links
+      each link in links
+        li
+          a.footer__link(href="#")= link
