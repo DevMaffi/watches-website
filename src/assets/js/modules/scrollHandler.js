@@ -9,6 +9,20 @@ function scrollHeader() {
   else header.classList.remove('scroll-header')
 }
 
+// Handle scroll-up module representation
+
+// this reefers to window
+function showScrollUp() {
+  const scrollUp = document.querySelector('#scroll-up')
+
+  // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scroll-top class
+  if (this.scrollY >= 350) return scrollUp.classList.add('show-scroll')
+
+  return scrollUp.classList.remove('show-scroll')
+}
+
+// Handle links active class
+
 function handleActiveLink(section, scrollY) {
   const sectionHeight = section.offsetHeight
   const sectionTop = section.offsetTop - 58
@@ -24,6 +38,8 @@ function handleActiveLink(section, scrollY) {
   return activeSection.classList.remove('active-link')
 }
 
+// Apply handler for each nav menu link
+
 // this refers to window
 function scrollActive() {
   const sections = document.querySelectorAll('section[id]')
@@ -32,8 +48,11 @@ function scrollActive() {
   sections.forEach(section => handleActiveLink(section, scrollY))
 }
 
+// Add event handlers on window
+
 function handleScroll() {
   window.addEventListener('scroll', scrollHeader)
+  window.addEventListener('scroll', showScrollUp)
   window.addEventListener('scroll', scrollActive)
 }
 
