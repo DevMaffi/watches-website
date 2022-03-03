@@ -3,7 +3,7 @@
 // modules
 import Swiper, { Navigation } from 'swiper'
 
-import { handleMenu, handleScroll } from '@modules'
+import { handleCart, handleMenu, handleScroll } from '@modules'
 
 // styles
 import 'swiper/css'
@@ -12,6 +12,7 @@ import '@sass/styles'
 
 // Setup handlers
 
+handleCart()
 handleMenu()
 handleScroll()
 
