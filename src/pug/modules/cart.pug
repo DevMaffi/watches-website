@@ -1,0 +1,15 @@
+// CART
+.cart#cart
+  i.bx.bx-x.cart__close#cart-close
+
+  h2.cart__title-center My Cart
+
+  // CART CONTAINER
+  .cart__container
+    each card in cartCards
+      +cartCard(card)
+
+  // CART PRICES
+  .cart__prices
+    span.cart__prices__item 3 items
+    span.cart__prices__total $2880

@@ -70,6 +70,30 @@ mixin newCard({ i, card: { title, price }} = {})
 
       button.button.new__button ADD TO CART     
 
+mixin cartCard({ img, title, price, amount } = {})
+  // CART CARD
+  article.cart__card
+    .cart__box
+      img.cart__img(src=`@img/${img}`, alt="cart img")
+
+    // CART DETAILS
+    .cart__details
+      h3.cart__title= title
+      span.cart__price= `$${price}`
+
+      // CART AMOUNT
+      .cart__amount
+        .cart__amount-content
+          span.cart__amount-box
+            i.bx.bx-minus
+
+          span.cart__amount-number= amount
+
+          span.cart__amount-box
+            i.bx.bx-plus
+
+    i.bx.bx-trash-alt.cart__amount-trash
+
 mixin footerContent({ title, links } = {})
   // FOOTER CONTENT
   .footer__content
