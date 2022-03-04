@@ -28,6 +28,10 @@
     +breakpoint($br: vars.$xsm, $media-feature: 'max-width')
       width: 180px
 
+    // medium devices
+    +breakpoint($br: vars.$xlg)
+      width: 450px
+
   .#{$parent}__img
     +plugins.position(absolute, $box-edge-values)
 
@@ -41,3 +45,7 @@
     // small devices
     +breakpoint($br: vars.$xsm, $media-feature: 'max-width')
       height: 180px
+
+    // medium devices
+    +breakpoint($br: vars.$xlg)
+      height: 450px

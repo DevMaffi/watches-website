@@ -29,6 +29,10 @@
     justify-content: center
     gap: 2.5rem
 
+  // medium devices
+  +mixins.breakpoint($br: vars.$xlg)
+    +plugins.padding(2rem null null)
+
 .products__card
   +plugins.padding(1.25rem null)
   @extend %card

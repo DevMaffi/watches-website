@@ -3,6 +3,9 @@
 // plugins
 @use '../plugins/plugins-dir' as plugins
 
+// vars
+@use '../base/vars'
+
 // mixins
 @use '../base/mixins'
 
@@ -14,6 +17,10 @@
 .testimonial__container
   row-gap: 4rem
   @extend %container-grid-medium
+
+  // medium devices
+  +mixins.breakpoint($br: vars.$xlg)
+    +plugins.padding(null null 4rem)
 
 .testimonial__quote
   display: inline-flex

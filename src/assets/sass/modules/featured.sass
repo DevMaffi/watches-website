@@ -24,6 +24,11 @@
     align-items: flex-start
     gap: 1.5rem
 
+  // medium devices
+  +mixins.breakpoint($br: vars.$xlg)
+    grid-template-columns: repeat(3, 312px)
+    +plugins.padding(2rem null null)
+
 .featured__card
   +plugins.padding(2rem null null)
   overflow-y: hidden

@@ -3,10 +3,21 @@
 // plugins
 @use '../plugins/plugins-dir' as plugins
 
+// vars
+@use '../base/vars'
+
+// mixins
+@use '../base/mixins'
+
 // placeholders
 @use '../base/placeholders'
 
 /* NEW
+
+.new__container
+  // medium devices
+  +mixins.breakpoint($br: vars.$xlg)
+    +plugins.padding(2rem null null)
 
 .new__card
   +plugins.padding(2rem null null)
