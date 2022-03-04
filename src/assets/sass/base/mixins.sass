@@ -1,5 +1,9 @@
 // Modules
 
+// vars
+@use 'vars'
+
+// plugins
 @use '../plugins/plugins-dir' as plugins
 
 // Mixins
@@ -20,6 +24,10 @@
   .#{$parent}__square
     width: 250px
 
+    // small devices
+    +breakpoint($br: vars.$xsm, $media-feature: 'max-width')
+      width: 180px
+
   .#{$parent}__img
     +plugins.position(absolute, $box-edge-values)
 
@@ -29,3 +37,7 @@
 
     @if $sq-left
       margin-left: auto
+
+    // small devices
+    +breakpoint($br: vars.$xsm, $media-feature: 'max-width')
+      height: 180px

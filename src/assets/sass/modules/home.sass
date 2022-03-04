@@ -1,5 +1,12 @@
 // Modules
 
+// vars
+@use '../base/vars'
+
+// mixins
+@use '../base/mixins'
+
+// plugins
 @use '../plugins/plugins-dir' as plugins
 
 /* HOME
@@ -21,6 +28,10 @@
   background-color: var(--first-color)
   transform: translateX(1.5rem)
 
+  // small devices
+  +mixins.breakpoint($br: vars.$xsm, $media-feature: 'max-width')
+    width: 220px
+
 .home__social
   display: flex
   column-gap: 1rem
@@ -41,6 +52,10 @@
     size: var(--biggest-font-size)
     weight: var(--font-bold)
 
+  // small devices
+  +mixins.breakpoint($br: vars.$xsm, $media-feature: 'max-width')
+    font-size: var(--h1-font-size)
+
 .home__description
   +plugins.margin(null null var(--mb-1-5))
 
@@ -58,3 +73,7 @@
 
 .home__button
   box-shadow: 0 12px 24px hsla(0, 0%, 10%, .2)
+
+  // small devices
+  +mixins.breakpoint($br: vars.$xsm, $media-feature: 'max-width')
+    font-size: var(--smaller-font-size)

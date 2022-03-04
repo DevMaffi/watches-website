@@ -1,5 +1,12 @@
 // Modules
 
+// vars
+@use '../base/vars'
+
+// mixins
+@use '../base/mixins'
+
+// plugins
 @use '../plugins/plugins-dir' as plugins
 
 /* CONTAINER
@@ -7,3 +14,7 @@
 .container
   max-width: 1024px
   +plugins.margin(null var(--mb-1-5))
+
+  // small devices
+  +mixins.breakpoint($br: vars.$xsm, $media-feature: 'max-width')
+    +plugins.margin(null var(--mb-1))

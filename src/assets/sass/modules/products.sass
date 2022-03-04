@@ -3,6 +3,9 @@
 // plugins
 @use '../plugins/plugins-dir' as plugins
 
+// vars
+@use '../base/vars'
+
 // mixins
 @use '../base/mixins'
 
@@ -14,6 +17,11 @@
 .products__container
   grid-template-columns: repeat(2, 1fr) 
   gap: 2rem
+
+  // small devices
+  +mixins.breakpoint($br: vars.$xsm, $media-feature: 'max-width')
+    grid-template-columns: repeat(1, 180px)
+    justify-content: center 
 
 .products__card
   +plugins.padding(1.25rem null)
