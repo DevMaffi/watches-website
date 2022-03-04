@@ -1,6 +1,16 @@
 // Modules
 
+// plugins
 @use '../plugins/plugins-dir' as plugins
+
+// vars
+@use '../base/vars'
+
+// mixins
+@use '../base/mixins'
+
+// placeholders
+@use '../base/placeholders'
 
 /* NEWSLETTER
 
@@ -9,6 +19,13 @@
   +plugins.padding(3rem 1.5rem)
   background-color: var(--first-color)
   text-align: center
+  @extend %container-grid-medium
+
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    column-gap: 2rem
+    +plugins.padding(4.5rem)
+    text-align: initial
 
 .newsletter__title
   +plugins.margin(null null var(--mb-1-5))
@@ -23,9 +40,17 @@
   flex-direction: column
   row-gap: .75rem
 
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    flex-direction: row
+
 .newsletter__input
   +plugins.padding(1.25rem 1rem)
   background-color: hsl(0, 0%, 94%)
   border: none
   outline: none
   color: hsl(0, 0%, 15%)
+
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    width: 100%

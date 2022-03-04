@@ -23,9 +23,18 @@
   +mixins.breakpoint($br: vars.$sm)
     grid-template-columns: repeat(2, 1fr) 
 
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    grid-template-columns: repeat(4, max-content)
+    justify-content: space-between
+
 .footer__title
   +plugins.margin(null null var(--mb-1-5))
   font-size: var(--h2-font-size)
+
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    font-size: var(--h3-font-size)
 
 .footer__list,
 .footer__links

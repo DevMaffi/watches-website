@@ -1,5 +1,12 @@
 // Modules
 
+// vars
+@use '../base/vars'
+
+// mixins
+@use '../base/mixins'
+
+// plugins
 @use '../plugins/plugins-dir' as plugins
 
 /* CART
@@ -11,6 +18,11 @@
   +plugins.position(fixed, 0 -100% null null)
   z-index: var(--z-fixed)
   transition: .4s
+
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    width: 420px
+    box-shadow: -2px 0 4px hsla(0, 0%, 15%, .1)
 
 .cart__title-center
   +plugins.margin(null null var(--mb-3))

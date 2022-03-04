@@ -1,11 +1,22 @@
 // Modules
 
+// vars
+@use '../base/vars'
+
+// mixins
+@use '../base/mixins'
+
+// plugins
 @use '../plugins/plugins-dir' as plugins
 
 /* SECTION
 
 .section
   +plugins.padding(6.5rem null 1rem)
+
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    +plugins.padding(8rem null 1rem)
 
 .section__title
   +plugins.margin(null null var(--mb-3))

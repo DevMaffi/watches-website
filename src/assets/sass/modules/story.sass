@@ -3,13 +3,28 @@
 // plugins
 @use '../plugins/plugins-dir' as plugins
 
+// vars
+@use '../base/vars' 
+
 // mixins
 @use '../base/mixins'
+
+// placeholders
+@use '../base/placeholders'
 
 /* STORY
 
 .story__container
   row-gap: 7.5rem
+  @extend %container-grid-medium
+
+.story__section-title
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    text-align: initial
+
+    &:before
+      +plugins.margin(initial)
 
 .story__title
   +plugins.margin(0 0 var(--mb-1))
@@ -19,3 +34,8 @@
   +plugins.margin(null null var(--mb-2-5))
 
 +mixins.images-block($parent: 'story', $box-edge-values: -3rem null null 3rem)
+
+.story__images
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    order: -1

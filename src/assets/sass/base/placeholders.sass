@@ -3,6 +3,9 @@
 // plugins
 @use '../plugins/plugins-dir' as plugins
 
+// vars
+@use 'vars'
+
 // mixins
 @use 'mixins'
 
@@ -34,6 +37,10 @@
     size: var(--h3-font-size)
     weight: var(--font-bold)
 
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    font-size: var(--normal-font-size)
+
 %card-title
   +mixins.card-title($mb: var(--mb-0-75))
 
@@ -52,3 +59,9 @@
 
   &:hover
     color: var(--title-color)
+
+%container-grid-medium
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    grid-template-columns: repeat(2, 1fr)
+    align-items: center

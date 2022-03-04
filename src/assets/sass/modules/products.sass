@@ -21,7 +21,13 @@
   // small devices
   +mixins.breakpoint($br: vars.$xsm, $media-feature: 'max-width')
     grid-template-columns: repeat(1, 180px)
-    justify-content: center 
+    justify-content: center
+
+  // medium devices
+  +mixins.breakpoint($br: vars.$md) 
+    grid-template-columns: repeat(3, 200px)
+    justify-content: center
+    gap: 2.5rem
 
 .products__card
   +plugins.padding(1.25rem null)
@@ -30,9 +36,17 @@
   &:hover
     box-shadow: 0 8px 32px hsla(0, 0%, 10%, .1)
 
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    +plugins.padding(2rem null)
+
 .products__img
   height: 125px
   +plugins.margin(null null var(--mb-1))
+
+  // medium devices
+  +mixins.breakpoint($br: vars.$md)
+    height: 155px
 
 .products__title,
 .products__price
