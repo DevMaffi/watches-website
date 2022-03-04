@@ -3,6 +3,12 @@
 // plugins
 @use '../plugins/plugins-dir' as plugins
 
+// vars
+@use '../base/vars'
+
+// mixins
+@use '../base/mixins'
+
 // placeholders
 @use '../base/placeholders'
 
@@ -10,6 +16,13 @@
 
 .featured__container
   row-gap: 2.5rem
+
+  // medium devices
+  +mixins.breakpoint($br: vars.$sm)
+    grid-template-columns: repeat(2, 1fr)
+    justify-content: center
+    align-items: flex-start
+    gap: 1.5rem
 
 .featured__card
   +plugins.padding(2rem null null)

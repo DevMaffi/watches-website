@@ -3,6 +3,12 @@
 // plugins
 @use '../plugins/plugins-dir' as plugins
 
+// vars
+@use '../base/vars'
+
+// mixins
+@use '../base/mixins'
+
 // placeholders
 @use '../base/placeholders'
 
@@ -12,6 +18,10 @@
   row-gap: 2rem
   +plugins.padding(null null 3rem)
   border-bottom: 1px solid var(--border-color)
+
+  // medium devices
+  +mixins.breakpoint($br: vars.$sm)
+    grid-template-columns: repeat(2, 1fr) 
 
 .footer__title
   +plugins.margin(null null var(--mb-1-5))
@@ -40,4 +50,3 @@
   font-size: var(--smaller-font-size)
   text-align: center
   color: var(--text-color-light)
-
