@@ -18,3 +18,7 @@
   // small devices
   +mixins.breakpoint($br: vars.$xsm, $media-feature: 'max-width')
     +plugins.margin(null var(--mb-1))
+
+  // large devices
+  +mixins.breakpoint($br: vars.$xl)
+    +plugins.margin(null auto)

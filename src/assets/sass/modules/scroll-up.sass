@@ -1,5 +1,12 @@
 // Modules
 
+// vars
+@use '../base/vars'
+
+// mixins
+@use '../base/mixins'
+
+// plugins
 @use '../plugins/plugins-dir' as plugins
 
 /* SCROLL UP
@@ -16,6 +23,10 @@
 
   &:hover
     opacity: 1
+
+  // large devices
+  +mixins.breakpoint($br: vars.$xl)
+    right: 3rem
 
 .scroll-up__icon
   font-size: 1.5rem
