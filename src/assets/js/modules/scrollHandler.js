@@ -15,7 +15,7 @@ function scrollHeader() {
 function showScrollUp() {
   const scrollUp = document.querySelector('#scroll-up')
 
-  // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scroll-top class
+  // when the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scroll-top class
   if (this.scrollY >= 350) return scrollUp.classList.add('show-scroll')
 
   return scrollUp.classList.remove('show-scroll')
