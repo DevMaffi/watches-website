@@ -6,5 +6,5 @@ section.new.section.container#new
   .new__container
     .swiper.new-swiper
       .swiper-wrapper
-        each card, i in newCards
-          +newCard({ i, card })
+        each card in newCards
+          +newCard(card)

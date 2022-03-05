@@ -4,5 +4,5 @@ section.products.section.container#products
 
   // PRODUCTS CONTAINER
   .products__container.grid
-    each card, i in productsCards
-      +productsCard({ i, card })
+    each card in productsCards
+      +productsCard(card)

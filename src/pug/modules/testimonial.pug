@@ -9,8 +9,8 @@ section.testimonial.section.container
 
       // SWIPER WRAPPER
       .swiper-wrapper
-        each card, i in testimonialCards
-          +testimonialCard({ i, card })
+        each card in testimonialCards
+          +testimonialCard(card)
 
       // SWIPER BTNS
       .swiper-button-prev

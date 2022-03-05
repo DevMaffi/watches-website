@@ -12,19 +12,19 @@ mixin head({ title=projectName, favicon="@files/favicon/favicon.png" } = {})
 mixin navLink({ link, isActive=false } = {})
   a(class=`nav__link ${isActive ? "active-link" : ""}` href=`#${link.toLowerCase()}`)= link
 
-mixin card({ i, classPrefix, imgPrefix, isSlide, tag="" } = {})
+mixin card({ classPrefix, img, imgPrefix, isSlide, tag="" } = {})
   // CARD
   article(class=`${classPrefix}__card ${isSlide ? 'swiper-slide' : ''}`)
     if tag
       span(class=`${classPrefix}__tag`)= tag
 
-    img(src=`@img/${imgPrefix}${i + 1}.png`, alt=`${imgPrefix}` class=`${classPrefix}__img`)
+    img(src=`@img/${img}`, alt=`${imgPrefix}` class=`${classPrefix}__img`)
 
     // CARD DATA
     block
 
-mixin featuredCard({ i, card: { title, price }} = {})
-  +card({ i, classPrefix: "featured", imgPrefix: "featured", tag: "Sale" })
+mixin featuredCard({ img, title, price } = {})
+  +card({ classPrefix: "featured", img, imgPrefix: "featured", tag: "Sale" })
     block cardData
       .featured__data
         h3.featured__title= title
@@ -32,8 +32,8 @@ mixin featuredCard({ i, card: { title, price }} = {})
 
       button.button.featured__button ADD TO CART
 
-mixin productsCard({ i, card: { title, price }} = {})
-  +card({ i, classPrefix: "products", imgPrefix: "product" })
+mixin productsCard({ img, title, price } = {})
+  +card({ classPrefix: "products", img, imgPrefix: "product" })
     block cardData
       h3.products__title= title
       span.products__price= `$${price}`
@@ -41,7 +41,7 @@ mixin productsCard({ i, card: { title, price }} = {})
       button.products__button
         i.bx.bx-shopping-bag
 
-mixin testimonialCard({ i, card: { name }} = {})
+mixin testimonialCard({ img, name } = {})
   // TESTIMONIAL CARD
   .testimonial__card.swiper-slide
 
@@ -55,14 +55,14 @@ mixin testimonialCard({ i, card: { name }} = {})
 
     // TESTIMONIAL PERFIL
     .testimonial__perfil
-      img.testimonial__perfil-img(src=`@img/testimonial${i + 1}.jpg`, alt="testimonial")
+      img.testimonial__perfil-img(src=`@img/${img}`, alt="testimonial")
 
       .testimonial__perfil-data
         span.testimonial__perfil-name= name
         span.testimonial__perfil-detail Director of a company
 
-mixin newCard({ i, card: { title, price }} = {})
-  +card({ i, classPrefix: "new", imgPrefix: "new", isSlide: true, tag: "New" })
+mixin newCard({ img, title, price } = {})
+  +card({ classPrefix: "new", img, imgPrefix: "new", isSlide: true, tag: "New" })
     block cardData
       .new__data
         h3.new__title= title

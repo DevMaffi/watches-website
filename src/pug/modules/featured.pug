@@ -4,5 +4,5 @@ section.featured.section.container#featured
 
   // FEATURED CONTAINER
   .featured__container.grid
-    each card, i in featuredCards
-      +featuredCard({ i, card })
+    each card in featuredCards
+      +featuredCard(card)
