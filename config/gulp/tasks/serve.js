@@ -13,7 +13,6 @@ const { distDir } = routes.baseDirs
 const serve = () =>
   browserSync.init({
     notify: false,
-    port: 5501, // default: 3001
     server: {
       baseDir: distDir,
     },
