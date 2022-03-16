@@ -6,8 +6,8 @@ import fs from 'fs'
 
 const baseDirs = {
   distDir: './build',
-  srcDir: './src',
   confDir: './config',
+  srcDir: './src',
 }
 
 // Pages

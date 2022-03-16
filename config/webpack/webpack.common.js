@@ -1,30 +1,21 @@
 // Modules
 
-// path
-import * as nodePath from 'path'
-
 // plugins
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 // base utils
-import { routes, entries } from '../utils/utils.js'
+import { entries } from '../utils/utils.js'
 
 // functions
 import functions from './functions.js'
 
 // Config
 
-const {
-  baseDirs: { distDir, srcDir },
-} = routes
+const { getPath, cssLoaders, getRegExObj } = functions
 
-const path = {
-  distDir: nodePath.resolve(distDir),
-  srcDir: nodePath.resolve(srcDir),
-}
+const path = getPath()
 
-const { cssLoaders } = functions
+const regEx = getRegExObj()
 
 const config = {
   context: path.srcDir,
@@ -50,29 +41,26 @@ const config = {
     extensions: ['.js', '.json', '.sass', '.scss'],
   },
   output: { path: path.distDir },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({ filename: '[contenthash].css' }),
-  ],
+  plugins: [new CleanWebpackPlugin()],
   module: {
     rules: [
       {
-        test: /\.html$/i,
+        test: regEx.html,
         loader: 'html-loader',
         options: {
           minimize: false,
         },
       },
       {
-        test: /\.css$/i,
+        test: regEx.css,
         use: cssLoaders(),
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: regEx.sass,
         use: cssLoaders('sass-loader'),
       },
       {
-        test: /\.m?js/,
+        test: regEx.js,
         resolve: {
           fullySpecified: false,
         },
@@ -80,11 +68,11 @@ const config = {
         loader: 'babel-loader',
       },
       {
-        test: /\.(gif|ico|jpe?g|png|svg|webp)$/i,
+        test: regEx.images,
         type: 'asset/resource',
       },
       {
-        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        test: regEx.sounds,
         type: 'asset/resource',
       },
     ],

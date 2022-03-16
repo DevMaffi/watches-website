@@ -1,31 +1,24 @@
 // Modules
 
-// path
-import * as nodePath from 'path'
-
 // plugins
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import CopyPlugin from 'copy-webpack-plugin'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 
 // base utils
-import { env, routes } from '../utils/utils.js'
+import { env } from '../utils/utils.js'
 
 // functions
 import functions from './functions.js'
 
 // Config
 
-const {
-  baseDirs: { confDir },
-} = routes
+const { getPath, applyHtmlPlugin, assetModuleFilename } = functions
 
-const path = {
-  confDir: nodePath.resolve(confDir),
-}
-
-const { applyHtmlPlugin } = functions
+const path = getPath()
+const wpContentDir = `${path.confDir}/wp-content`
 
 const config = {
   mode: 'production',
@@ -49,19 +42,29 @@ const config = {
       }),
     ],
   },
-  output: { filename: '[contenthash].js' },
+  output: {
+    filename: env.isWp ? 'assets/js/[contenthash].js' : '[contenthash].js',
+    ...(env.isWp ? { assetModuleFilename } : {}),
+  },
   plugins: [
     ...(env.isWp
       ? [
           new CopyPlugin({
             patterns: [
               {
-                from: `${path.confDir}/wp/.prettierignore`,
+                from: `${wpContentDir}/.prettierignore`,
+              },
+              {
+                context: `${wpContentDir}`,
+                from: `*.php`,
               },
             ],
           }),
         ]
       : [new BundleAnalyzerPlugin()]),
+    new MiniCssExtractPlugin({
+      filename: env.isWp ? 'style.css' : '[contenthash].css',
+    }),
     ...applyHtmlPlugin({
       minify: env.isProd,
       ext: env.isWp ? 'php' : 'html',
