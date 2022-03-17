@@ -43,7 +43,7 @@ const config = {
     ],
   },
   output: {
-    filename: env.isWp ? 'assets/js/[contenthash].js' : '[contenthash].js',
+    filename: env.isWp ? 'assets/js/[name].min.js' : '[contenthash].js',
     ...(env.isWp ? { assetModuleFilename } : {}),
   },
   plugins: [
@@ -52,7 +52,19 @@ const config = {
           new CopyPlugin({
             patterns: [
               {
-                from: `${wpContentDir}/.prettierignore`,
+                from: '../.vscode/',
+                to: '.vscode',
+                noErrorOnMissing: true,
+              },
+              {
+                from: `${wpContentDir}/config/.gitignore`,
+              },
+              {
+                from: `${wpContentDir}/config/.prettierignore`,
+              },
+              {
+                from: '../screenshot.png',
+                noErrorOnMissing: true,
               },
               {
                 context: `${wpContentDir}`,
