@@ -61,7 +61,7 @@ const assetModuleFilename = pathData => {
   const isSound = regEx.sounds.test(pathData.filename)
 
   const root = 'assets'
-  const filename = '[contenthash][ext]'
+  const filename = '[name][ext]'
 
   if (isFont) return `${root}/fonts/${filename}`
 
